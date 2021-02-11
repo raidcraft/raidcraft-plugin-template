@@ -50,10 +50,8 @@ public class PluginTemplate extends JavaPlugin {
 
         loadConfig();
         setupDatabase();
-        if (!testing) {
-            setupListener();
-            setupCommands();
-        }
+        setupListener();
+        setupCommands();
     }
 
     public void reload() {

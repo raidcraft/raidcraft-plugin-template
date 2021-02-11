@@ -65,11 +65,13 @@ dependencies {
     implementation 'co.aikar:acf-paper:0.5.0-SNAPSHOT'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
 
-    implementation 'net.kyori:adventure-api:4.2.0-SNAPSHOT'
+    implementation 'net.kyori:adventure-api:4.5.0'
     implementation 'net.kyori:adventure-text-minimessage:4.0.0-SNAPSHOT'
     implementation 'net.kyori:adventure-platform-bukkit:4.0.0-SNAPSHOT'
+    implementation group: 'net.kyori', name: 'adventure-text-feature-pagination', version: '4.0.0-SNAPSHOT'
+    implementation group: 'net.kyori', name: 'adventure-text-serializer-plain', version: '4.5.0'
 
-    implementation group: 'io.art-framework', name: 'art-core', version: '1.0.0-beta.30'
+    implementation group: 'io.art-framework.core', name: 'api', version: '4.5.1'
 
     testImplementation 'io.ebean:ebean-test:12.6.0'
 
@@ -83,7 +85,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.+'
     testImplementation "org.mockito:mockito-core:3.+"
     testImplementation 'org.assertj:assertj-core:3.+'
-    testImplementation 'com.github.seeseemelk:MockBukkit-v1.16:0.16.0'
+    testImplementation 'com.github.seeseemelk:MockBukkit-v1.16:0.20.0'
 }
 
 shadowJar {
@@ -96,7 +98,7 @@ shadowJar {
     relocate 'co.aikar.commands', "shadow.${pluginName}.acf"
     relocate 'co.aikar.locales', "shadow.${pluginName}.locales"
     relocate 'de.exlll.configlib', "shadow.${pluginName}.configlib"
-    relocate 'net.kyori.adventure', "shadow.${pluginName}.adventure"
+    relocate 'net.kyori', "shadow.${pluginName}.text"
 }
 
 tasks.build.dependsOn(shadowJar)
